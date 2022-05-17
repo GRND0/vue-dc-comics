@@ -33,7 +33,7 @@ export default {
 @import "../style/common.scss";
 
 .contenitore-header {
-  width: 100%;
+  width: 80%;
   height: 100px;
   background-color: white;
   display: flex;
