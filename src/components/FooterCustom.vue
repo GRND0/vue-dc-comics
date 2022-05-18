@@ -5,8 +5,39 @@
         <ul>
           <li>
             <a href=""
-              ><img src="../assets/img/buy-comics-digital-comics.png" alt=""
-            /></a>
+              ><img
+                src="../assets/img/buy-comics-digital-comics.png"
+                alt=""
+              />DIGITAL COMICS</a
+            >
+          </li>
+          <li>
+            <a href=""
+              ><img src="../assets/img/buy-comics-merchandise.png" alt="" />DC
+              MERCHANDISE</a
+            >
+          </li>
+          <li>
+            <a href=""
+              ><img
+                src="../assets/img/buy-comics-subscriptions.png"
+                alt=""
+              />SUBSCRIPTION</a
+            >
+          </li>
+          <li>
+            <a href=""
+              ><img
+                src="../assets/img/buy-comics-shop-locator.png"
+                alt=""
+              />COMIC SHOP LOCATOR</a
+            >
+          </li>
+          <li>
+            <a href=""
+              ><img src="../assets/img/buy-dc-power-visa.svg" alt="" />DC POWER
+              VISA</a
+            >
           </li>
         </ul>
       </div>
@@ -19,7 +50,11 @@
             <a href=""> </a>
           </li>
         </ul>
-        <img src="../assets/img/dc-logo-bg.png" alt="" />
+        <img
+          class="logo-sottostante"
+          src="../assets/img/dc-logo-bg.png"
+          alt=""
+        />
       </div>
     </div>
     <div class="footer-inferiore">
@@ -51,13 +86,35 @@ export default {
 .contenitore-footer {
   width: 100%;
 
+  & .logo-sottostante {
+    z-index: -1;
+  }
   & .nav-blu {
     width: 100%;
-    height: 100px;
+    height: 120px;
     background-color: $colore-primario;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     & .wrapper-nav-blu {
       width: 80%;
+      height: 80%;
+    }
+
+    & ul {
+      display: flex;
+      justify-content: space-between;
+      height: 70%;
+      list-style: none;
+    }
+
+    & img {
+      height: 100%;
+    }
+
+    & a {
+      text-decoration: none;
     }
   }
 
