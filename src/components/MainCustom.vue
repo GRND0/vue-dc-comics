@@ -1,12 +1,11 @@
 <template>
   <section>
     <div class="contenitore">
+      <div class="barra-ricerca">
+        <RicercaCustom @searchClick="datoRicevuto($event)" />
+      </div>
       <div class="lista-comics">
-        <SerieCorrenti
-          v-for="(item, index) in serie"
-          :key="index"
-          :DatiSerie="item"
-        />
+        <SerieCorrenti v-for="(item, index) in serieFiltrate" :key="index" :DatiSerie="item" />
       </div>
     </div>
   </section>
@@ -14,12 +13,31 @@
 
 <script>
 import SerieCorrenti from "./SerieCorrenti.vue";
+import RicercaCustom from "./RicercaCustom.vue"
 
 export default {
   name: "MainCustom",
   components: {
     SerieCorrenti,
+    RicercaCustom,
   },
+
+  computed: {
+    serieFiltrate() {
+      const filteredArray = this.serie.filter((item) => {
+        return item.series.toLowerCase().includes(this.testoCercato)
+      }
+      )
+      return filteredArray ;
+    }
+  },
+
+  methods: {
+    datoRicevuto(testo) {
+      this.testoCercato = testo.toLowerCase();
+    }
+  },
+
   data: function () {
     return {
       serie: [
@@ -108,6 +126,7 @@ export default {
           type: "graphic novel",
         },
       ],
+      testoCercato: "",
     };
   },
 };
@@ -116,4 +135,9 @@ export default {
 <style lang="scss" scoped>
 @import "../style/variables.scss";
 @import "../style/common.scss";
+
+.lista-comics {
+  display: flex;
+  flex-wrap: wrap;
+}
 </style>
